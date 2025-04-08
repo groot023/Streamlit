@@ -24,24 +24,24 @@ st.write(df.head())
 st.sidebar.header("🔍 Filter Data")
 
 # Example: Assume the dataset has 'Category' and 'Value' columns
-if 'Category' in df.columns and 'Value' in df.columns:
+if 'prijs' in df.columns and 'merk' in df.columns:
 
     # Unique categories for filtering
-    categories = df['Category'].unique()
+    categories = df['merk'].unique()
     selected_categories = st.sidebar.multiselect("Select Categories", categories, default=categories)
 
     # Filter the data
-    filtered_df = df[df['Category'].isin(selected_categories)]
+    filtered_df = df[df['merk'].isin(selected_categories)]
 
     # Show bar chart
     st.subheader("Bar Chart")
     chart = alt.Chart(filtered_df).mark_bar().encode(
-        x='Category:N',
-        y='Value:Q',
-        tooltip=['Category', 'Value']
+        x='merk:N',
+        y='prijs:Q',
+        tooltip=['merk', 'prijs']
     ).properties(width=700, height=400)
 
     st.altair_chart(chart, use_container_width=True)
 else:
-    st.error("Dataset must contain 'Category' and 'Value' columns to render the chart.")
+    st.error("Dataset must contain 'merk' and 'prijs' columns to render the chart.")
 
