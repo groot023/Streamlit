@@ -3,7 +3,7 @@ import pandas as pd
 import altair as alt
 
 # Replace this with your actual CSV file URL from GitHub
-CSV_URL = "https://raw.githubusercontent.com/your-username/your-repo/main/your-dataset.csv"
+CSV_URL = "https://github.com/groot023/Streamlit/blob/main/exclusieve_schoenen_verkoop_met_locatie.csv"
 
 # Load data
 @st.cache_data
