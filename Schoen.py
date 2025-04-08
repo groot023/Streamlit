@@ -48,7 +48,7 @@ with tab2:
     if {'aankoopdatum', 'prijs', 'merk'}.issubset(df.columns):
         df_line = df.dropna(subset=['aankoopdatum', 'prijs', 'merk'])
 
-    line_chart = alt.Chart(df_line).mark_line().encode(
+        line_chart = alt.Chart(df_line).mark_line().encode(
             x=alt.X('aankoopdatum:T',
                     axis=alt.Axis(title='Aankoopdatum', format='%b %Y')),
             y=alt.Y('prijs:Q', title='Prijs'),
