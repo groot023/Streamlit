@@ -46,3 +46,21 @@ if 'prijs' in df.columns and 'merk' in df.columns:
 else:
     st.error("Dataset must contain 'merk' and 'prijs' columns to render the chart.")
 
+with tab2:
+    st.subheader("🌍 Verdeling per Land")
+
+    if 'land' in df.columns:
+        land_counts = df['land'].value_counts().reset_index()
+        land_counts.columns = ['land', 'aantal']
+
+        pie_chart = px.pie(
+            land_counts,
+            names='land',
+            values='aantal',
+            title="Aantal verkopen per land",
+            color_discrete_sequence=px.colors.sequential.RdBu
+        )
+
+        st.plotly_chart(pie_chart, use_container_width=True)
+    else:
+        st.warning("De kolom 'land' bestaat niet in de dataset.")
