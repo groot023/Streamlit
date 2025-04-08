@@ -11,7 +11,8 @@ def load_data(url):
     df = pd.read_csv(url)
     return df
 
-df = load_data(CSV_URL)
+# df = load_data(CSV_URL)
+df = load_data('exclusieve_schoenen_verkoop_met_locatie.csv')
 
 # App Title
 st.title("📊 Interactive Bar Chart App")
