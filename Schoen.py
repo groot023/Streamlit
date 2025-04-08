@@ -43,15 +43,16 @@ with tab1:
 
 # ------------- TAB 2: Line Chart -------------
 with tab2:
-    st.subheader("📈 Prijsontwikkeling over Tijd")
+    st.subheader("📈 Line chart")
 
     if {'aankoopdatum', 'prijs', 'merk'}.issubset(df.columns):
         df_line = df.dropna(subset=['aankoopdatum', 'prijs', 'merk'])
 
-        line_chart = alt.Chart(df_line).mark_line().encode(
-            x='aankoopdatum:T',
-            y='prijs:Q',
-            color='merk:N',
+    line_chart = alt.Chart(df_line).mark_line().encode(
+            x=alt.X('aankoopdatum:T',
+                    axis=alt.Axis(title='Aankoopdatum', format='%b %Y')),
+            y=alt.Y('prijs:Q', title='Prijs'),
+            color=alt.Color('merk:N', title='Merk'),
             tooltip=['aankoopdatum', 'merk', 'prijs']
         ).properties(width=800, height=400)
 
