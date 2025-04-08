@@ -12,7 +12,7 @@ def load_data():
 df = load_data()
 
 # App Title
-st.title("📊 First Test App in Streamlit")
+st.title("📊 First Streamlit")
 
 # Tabs
 tab1, tab2 = st.tabs(["📦 Bar Chart", "📈 Line Chart Over Time"])
